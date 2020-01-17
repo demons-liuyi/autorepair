@@ -202,52 +202,62 @@ public class DimissionExample {
             return (Criteria) this;
         }
 
-        public Criteria andStaffidEqualTo(Integer value) {
+        public Criteria andStaffidEqualTo(String value) {
             addCriterion("staffId =", value, "staffid");
             return (Criteria) this;
         }
 
-        public Criteria andStaffidNotEqualTo(Integer value) {
+        public Criteria andStaffidNotEqualTo(String value) {
             addCriterion("staffId <>", value, "staffid");
             return (Criteria) this;
         }
 
-        public Criteria andStaffidGreaterThan(Integer value) {
+        public Criteria andStaffidGreaterThan(String value) {
             addCriterion("staffId >", value, "staffid");
             return (Criteria) this;
         }
 
-        public Criteria andStaffidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andStaffidGreaterThanOrEqualTo(String value) {
             addCriterion("staffId >=", value, "staffid");
             return (Criteria) this;
         }
 
-        public Criteria andStaffidLessThan(Integer value) {
+        public Criteria andStaffidLessThan(String value) {
             addCriterion("staffId <", value, "staffid");
             return (Criteria) this;
         }
 
-        public Criteria andStaffidLessThanOrEqualTo(Integer value) {
+        public Criteria andStaffidLessThanOrEqualTo(String value) {
             addCriterion("staffId <=", value, "staffid");
             return (Criteria) this;
         }
 
-        public Criteria andStaffidIn(List<Integer> values) {
+        public Criteria andStaffidLike(String value) {
+            addCriterion("staffId like", value, "staffid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffidNotLike(String value) {
+            addCriterion("staffId not like", value, "staffid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStaffidIn(List<String> values) {
             addCriterion("staffId in", values, "staffid");
             return (Criteria) this;
         }
 
-        public Criteria andStaffidNotIn(List<Integer> values) {
+        public Criteria andStaffidNotIn(List<String> values) {
             addCriterion("staffId not in", values, "staffid");
             return (Criteria) this;
         }
 
-        public Criteria andStaffidBetween(Integer value1, Integer value2) {
+        public Criteria andStaffidBetween(String value1, String value2) {
             addCriterion("staffId between", value1, value2, "staffid");
             return (Criteria) this;
         }
 
-        public Criteria andStaffidNotBetween(Integer value1, Integer value2) {
+        public Criteria andStaffidNotBetween(String value1, String value2) {
             addCriterion("staffId not between", value1, value2, "staffid");
             return (Criteria) this;
         }

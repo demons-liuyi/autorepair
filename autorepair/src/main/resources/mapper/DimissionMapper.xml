@@ -3,12 +3,23 @@
 <mapper namespace="com.accp.mapper.DimissionMapper" >
   <resultMap id="BaseResultMap" type="com.accp.domain.Dimission" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="staffId" property="staffid" jdbcType="INTEGER" />
+    <result column="staffId" property="staffid" jdbcType="VARCHAR" />
     <result column="dimissionDate" property="dimissiondate" jdbcType="DATE" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.accp.domain.Dimission" extends="BaseResultMap" >
     <result column="dimissionCause" property="dimissioncause" jdbcType="VARBINARY" />
   </resultMap>
+  <resultMap type="com.accp.domain.Dimission" id="ResultMapPlus" extends="ResultMapWithBLOBs">
+  	<result column="departmentname" property="departmentname" jdbcType="VARCHAR" />
+  	<result column="name" property="name" jdbcType="VARCHAR" />
+  	<result column="sex" property="sex" jdbcType="VARCHAR" />
+  	<result column="postname" property="postname" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectDimissionInfo" resultMap="ResultMapPlus">
+  	SELECT (SELECT departmentName FROM department WHERE department.id=st.departmentid) 
+	departmentname,staffid,NAME,sex,(SELECT postName FROM post WHERE id=st.postid) postname,dimissionDate,dimissionCause
+ 	FROM dimission di INNER JOIN staff st ON di.`staffId`=st.staffno
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -124,7 +135,7 @@
   <insert id="insert" parameterType="com.accp.domain.Dimission" >
     insert into dimission (id, staffId, dimissionDate, 
       dimissionCause)
-    values (#{id,jdbcType=INTEGER}, #{staffid,jdbcType=INTEGER}, #{dimissiondate,jdbcType=DATE}, 
+    values (#{id,jdbcType=INTEGER}, #{staffid,jdbcType=VARCHAR}, #{dimissiondate,jdbcType=DATE}, 
       #{dimissioncause,jdbcType=VARBINARY})
   </insert>
   <insert id="insertSelective" parameterType="com.accp.domain.Dimission" >
@@ -148,7 +159,7 @@
         #{id,jdbcType=INTEGER},
       </if>
       <if test="staffid != null" >
-        #{staffid,jdbcType=INTEGER},
+        #{staffid,jdbcType=VARCHAR},
       </if>
       <if test="dimissiondate != null" >
         #{dimissiondate,jdbcType=DATE},
@@ -171,7 +182,7 @@
         id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.staffid != null" >
-        staffId = #{record.staffid,jdbcType=INTEGER},
+        staffId = #{record.staffid,jdbcType=VARCHAR},
       </if>
       <if test="record.dimissiondate != null" >
         dimissionDate = #{record.dimissiondate,jdbcType=DATE},
@@ -187,7 +198,7 @@
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update dimission
     set id = #{record.id,jdbcType=INTEGER},
-      staffId = #{record.staffid,jdbcType=INTEGER},
+      staffId = #{record.staffid,jdbcType=VARCHAR},
       dimissionDate = #{record.dimissiondate,jdbcType=DATE},
       dimissionCause = #{record.dimissioncause,jdbcType=VARBINARY}
     <if test="_parameter != null" >
@@ -197,7 +208,7 @@
   <update id="updateByExample" parameterType="map" >
     update dimission
     set id = #{record.id,jdbcType=INTEGER},
-      staffId = #{record.staffid,jdbcType=INTEGER},
+      staffId = #{record.staffid,jdbcType=VARCHAR},
       dimissionDate = #{record.dimissiondate,jdbcType=DATE}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -207,7 +218,7 @@
     update dimission
     <set >
       <if test="staffid != null" >
-        staffId = #{staffid,jdbcType=INTEGER},
+        staffId = #{staffid,jdbcType=VARCHAR},
       </if>
       <if test="dimissiondate != null" >
         dimissionDate = #{dimissiondate,jdbcType=DATE},
@@ -220,14 +231,14 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.accp.domain.Dimission" >
     update dimission
-    set staffId = #{staffid,jdbcType=INTEGER},
+    set staffId = #{staffid,jdbcType=VARCHAR},
       dimissionDate = #{dimissiondate,jdbcType=DATE},
       dimissionCause = #{dimissioncause,jdbcType=VARBINARY}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.accp.domain.Dimission" >
     update dimission
-    set staffId = #{staffid,jdbcType=INTEGER},
+    set staffId = #{staffid,jdbcType=VARCHAR},
       dimissionDate = #{dimissiondate,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}
   </update>

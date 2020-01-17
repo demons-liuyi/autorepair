@@ -5,11 +5,51 @@ import java.util.Date;
 public class Dimission {
     private Integer id;
 
-    private Integer staffid;
+    private String staffid;
 
     private Date dimissiondate;
 
     private byte[] dimissioncause;
+    
+    private String departmentname;//部门名称
+   
+    private String name;//员工姓名
+    
+    private String sex;//性别
+    
+    private String postname;//岗位名称	
+    
+    public String getDepartmentname() {
+		return departmentname;
+	}
+
+	public void setDepartmentname(String departmentname) {
+		this.departmentname = departmentname;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String getPostname() {
+		return postname;
+	}
+
+	public void setPostname(String postname) {
+		this.postname = postname;
+	}
 
     public Integer getId() {
         return id;
@@ -19,11 +59,11 @@ public class Dimission {
         this.id = id;
     }
 
-    public Integer getStaffid() {
+    public String getStaffid() {
         return staffid;
     }
 
-    public void setStaffid(Integer staffid) {
+    public void setStaffid(String staffid) {
         this.staffid = staffid;
     }
 

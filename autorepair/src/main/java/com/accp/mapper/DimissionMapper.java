@@ -6,6 +6,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface DimissionMapper {
+	List<Dimission> selectDimissionInfo();
+	
     int countByExample(DimissionExample example);
 
     int deleteByExample(DimissionExample example);
