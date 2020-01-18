@@ -3,7 +3,27 @@ package com.accp.domain;
 import java.util.Date;
 
 public class Staff {
-    private String staffno;
+	private Boolean check;//是否被选中
+	
+	private String departmentname;//部门名称
+	
+    public String getDepartmentname() {
+		return departmentname;
+	}
+
+	public void setDepartmentname(String departmentname) {
+		this.departmentname = departmentname;
+	}
+
+	public Boolean getCheck() {
+		return check;
+	}
+
+	public void setCheck(Boolean check) {
+		this.check = check;
+	}
+
+	private String staffno;
 
     private String name;
 

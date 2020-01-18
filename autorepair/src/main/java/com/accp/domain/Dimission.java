@@ -19,7 +19,17 @@ public class Dimission {
     
     private String postname;//岗位名称	
     
-    public String getDepartmentname() {
+    private Boolean check;//是否被选中
+
+	public Boolean getCheck() {
+		return check;
+	}
+
+	public void setCheck(Boolean check) {
+		this.check = check;
+	}
+
+	public String getDepartmentname() {
 		return departmentname;
 	}
 

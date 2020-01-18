@@ -52,6 +52,13 @@
     <result column="roleId" property="roleid" jdbcType="INTEGER" />
     <result column="isDimission" property="isdimission" jdbcType="INTEGER" />
   </resultMap>
+  <resultMap type="com.accp.domain.Staff" id="BaseResultMapPlus" extends="BaseResultMap">
+  	 <result column="departmentname" property="departmentname" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectStaffByCondition" resultMap="BaseResultMapPlus">
+  	 SELECT s.*,d.departmentname FROM staff s INNER JOIN department d ON s.departmentid=d.id WHERE d.departmentname LIKE '%${departmentname}%' 
+  </select>
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
