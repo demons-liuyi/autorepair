@@ -20,16 +20,6 @@ public class Dimission {
     private String postname;//岗位名称	
     
     private Boolean check;//是否被选中
-    
-    private Staff staff;//员工信息
-
-	public Staff getStaff() {
-		return staff;
-	}
-
-	public void setStaff(Staff staff) {
-		this.staff = staff;
-	}
 
 	public Boolean getCheck() {
 		return check;
