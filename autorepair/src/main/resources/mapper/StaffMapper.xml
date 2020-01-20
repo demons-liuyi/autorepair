@@ -56,7 +56,7 @@
   	 <result column="departmentname" property="departmentname" jdbcType="VARCHAR" />
   </resultMap>
   <select id="selectStaffByCondition" resultMap="BaseResultMapPlus">
-  	 SELECT s.*,d.departmentname FROM staff s INNER JOIN department d ON s.departmentid=d.id WHERE d.departmentname LIKE '%${departmentname}%' 
+  	 SELECT s.*,d.departmentname FROM staff s INNER JOIN department d ON s.departmentid=d.id WHERE d.departmentname LIKE '%${departmentname}%' and s.isdimission=0; 
   </select>
   
   <sql id="Example_Where_Clause" >

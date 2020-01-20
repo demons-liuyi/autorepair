@@ -22,4 +22,18 @@ public class staffService {
 		List<Staff> list=sm.selectStaffByCondition(departmentname);
 		return list;
 	}
+	
+	public int deleteStaff(String staffno) {
+		int i=sm.deleteByPrimaryKey(staffno);
+		return i;
+	}
+	
+	public int updateStaff(String staffno,int isdimission) {
+		 Staff record=new Staff();
+		 record.setIsdimission(isdimission);	
+		 record.setStaffno(staffno);
+		int i=sm.updateByPrimaryKeySelective(record);
+		System.out.println(i);
+		return i;
+	}
 }
