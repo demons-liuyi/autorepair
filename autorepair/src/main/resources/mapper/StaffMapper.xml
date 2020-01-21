@@ -58,7 +58,9 @@
   <select id="selectStaffByCondition" resultMap="BaseResultMapPlus">
   	 SELECT s.*,d.departmentname FROM staff s INNER JOIN department d ON s.departmentid=d.id WHERE d.departmentname LIKE '%${departmentname}%' and s.isdimission=0; 
   </select>
-  
+  <select id="selectStaffByStaffNo" resultMap="BaseResultMapPlus">
+  	 select s.*,d.departmentname from staff s inner join department d on s.departmentid=d.id where s.staffno ='${staffno}';
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

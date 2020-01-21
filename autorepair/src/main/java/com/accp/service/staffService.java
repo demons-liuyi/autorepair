@@ -23,6 +23,11 @@ public class staffService {
 		return list;
 	}
 	
+	public Staff selectByStaffNo(String staffno) {
+		Staff staff=sm.selectStaffByStaffNo(staffno);
+		return staff;
+	}
+	
 	public int deleteStaff(String staffno) {
 		int i=sm.deleteByPrimaryKey(staffno);
 		return i;

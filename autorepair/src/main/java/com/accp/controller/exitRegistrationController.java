@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.accp.domain.Department;
 import com.accp.domain.DepartmentExample;
 import com.accp.domain.Dimission;
+import com.accp.domain.Post;
 import com.accp.domain.Staff;
 import com.accp.service.departmentService;
 import com.accp.service.dimissionService;
+import com.accp.service.postService;
 import com.accp.service.staffService;
 
 //离职登记Controller
@@ -28,6 +30,14 @@ public class exitRegistrationController {
 	departmentService dms;
 	@Autowired
 	staffService ss;
+	@Autowired
+	postService ps;
+	
+	@RequestMapping("/selectAllPost")
+	public List<Post> selectAllPost(){
+		List<Post> list=ps.selectAllPost();
+		return list;
+	}
 	
 	@RequestMapping("/queryDimissionInfo")
 	public List<Dimission> queryDimissionInfo(){
@@ -45,6 +55,13 @@ public class exitRegistrationController {
 	@RequestMapping("/selectAllDepartment")
 	public List<Department> selectAllDepartment(){
 		List<Department> list=dms.selectAllDepartment();
+		for(int i=0;i<list.size();i++) {
+			if(i==0) {
+				list.get(i).setCheck(true);
+			}else {
+				list.get(i).setCheck(false);	
+			}
+		}
 		return list;
 	}
 	
@@ -68,6 +85,12 @@ public class exitRegistrationController {
 			}
 		}
 		return list;
+	}
+	
+	@RequestMapping("/selectByStaffNo")
+	public Staff selectByStaffNo(String staffno) {
+		Staff staff=ss.selectByStaffNo(staffno);
+		return staff;
 	}
 	
 	@RequestMapping("/addDimission")

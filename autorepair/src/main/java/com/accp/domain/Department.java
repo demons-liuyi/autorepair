@@ -8,8 +8,18 @@ public class Department {
     private String departmenttypename;
 
     private Integer parentid;
+    
+    private Boolean check;//是否被选中
 
-    public Integer getId() {
+    public Boolean getCheck() {
+		return check;
+	}
+
+	public void setCheck(Boolean check) {
+		this.check = check;
+	}
+
+	public Integer getId() {
         return id;
     }
 
