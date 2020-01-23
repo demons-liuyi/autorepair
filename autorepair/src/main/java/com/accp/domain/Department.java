@@ -11,7 +11,7 @@ public class Department {
     
     private Boolean check;//是否被选中
 
-    public Boolean getCheck() {
+	public Boolean getCheck() {
 		return check;
 	}
 

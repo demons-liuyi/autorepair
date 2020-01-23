@@ -23,4 +23,11 @@ public class departmentService {
 		List<Department> list=dm.selectByExample(example);
 		return list;
 	}
+	
+	public int queryCountFromDepartment() {
+		DepartmentExample example=new DepartmentExample();
+		example.createCriteria().andParentidNotEqualTo(1).andParentidNotEqualTo(0);
+		int i=dm.countByExample(example);
+		return i;
+	}
 }

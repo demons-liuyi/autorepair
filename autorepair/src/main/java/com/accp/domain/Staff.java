@@ -7,7 +7,67 @@ public class Staff {
 	
 	private String departmentname;//部门名称
 	
-    public String getDepartmentname() {
+	private Date dateofentryone;//入职日期区间1
+	
+	private Date dateofentrytwo;//入职日期区间2
+	
+	private Date thetrialdateone;//试用日期区间1
+	
+	private Date thetrialdatetwo;//试用日期区间2
+	
+	private Date contractstartdateone;//合同开始区间1
+	
+	private Date contractstartdatetwo;//合同开始区间2
+	
+    public Date getDateofentrytwo() {
+		return dateofentrytwo;
+	}
+
+	public void setDateofentrytwo(Date dateofentrytwo) {
+		this.dateofentrytwo = dateofentrytwo;
+	}
+
+	public Date getThetrialdateone() {
+		return thetrialdateone;
+	}
+
+	public void setThetrialdateone(Date thetrialdateone) {
+		this.thetrialdateone = thetrialdateone;
+	}
+
+	public Date getThetrialdatetwo() {
+		return thetrialdatetwo;
+	}
+
+	public void setThetrialdatetwo(Date thetrialdatetwo) {
+		this.thetrialdatetwo = thetrialdatetwo;
+	}
+
+	public Date getContractstartdateone() {
+		return contractstartdateone;
+	}
+
+	public void setContractstartdateone(Date contractstartdateone) {
+		this.contractstartdateone = contractstartdateone;
+	}
+
+	public Date getContractstartdatetwo() {
+		return contractstartdatetwo;
+	}
+
+	public void setContractstartdatetwo(Date contractstartdatetwo) {
+		this.contractstartdatetwo = contractstartdatetwo;
+	}
+
+	public Date getDateofentryone() {
+		return dateofentryone;
+	}
+
+	public void setDateofentryone(Date dateofentryone) {
+		this.dateofentryone = dateofentryone;
+	}
+
+	public String getDepartmentname() {
 		return departmentname;
 	}
 

@@ -43,4 +43,9 @@ public class dimissionService {
 		int i=dm.deleteByExample(example);
 		return i;
 	}
+	
+	public int queryCountFromDimission() {
+		int i=dm.countByExample(null);
+		return i;
+	}
 }
