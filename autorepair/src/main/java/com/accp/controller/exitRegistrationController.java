@@ -69,6 +69,8 @@ public class exitRegistrationController {
 					}				
 				}			 
 			}
+		}else {
+			dimissionlist=list;
 		}		
 		for(int i=0;i<dimissionlist.size();i++) {
 			if(i==0) {
@@ -78,7 +80,34 @@ public class exitRegistrationController {
 			}
 		}
 		return dimissionlist;
-	}	 
+	}
+	
+	@RequestMapping("/selectDimissionInfoByStaffNoOrName")
+	public List<Dimission> selectDimissionInfoByStaffNoOrName(String condition){
+		List<Dimission> list=ds.queryDimissionInfo();
+		List<Dimission> dimissionlist=new ArrayList<Dimission>();
+		if(condition!=null&&condition.length()>0) {
+			List<Staff> stafflist=ss.selectStaffByStaffNoOrName(condition);
+			for(int a=0;a<list.size();a++) {	 
+				for(int b=0;b<stafflist.size();b++) {
+					if(list.get(a).getStaffid().equals(stafflist.get(b).getStaffno())) {			
+						dimissionlist.add(list.get(a));
+						break;
+					}				
+				}			 
+			}
+		}else {
+			dimissionlist=list;
+		}		
+		for(int i=0;i<dimissionlist.size();i++) {
+			if(i==0) {
+				dimissionlist.get(i).setCheck(true);
+			}else {
+				dimissionlist.get(i).setCheck(false);	
+			}
+		}
+		return dimissionlist;
+	}
 	
 	@RequestMapping("/addDimission")
 	public int addDimission(String staffname,String dimissiondate,String dimissioncause) {

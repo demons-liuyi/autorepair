@@ -7,6 +7,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface StaffMapper {
+	List<Staff> selectStaffPhone();
+	
 	Staff selectStaffByStaffNo(String staffno);
 	
 	List<Staff> selectStaffByCondition(String departmentname);

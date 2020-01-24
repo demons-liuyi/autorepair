@@ -19,15 +19,33 @@ public class staffService {
 	@Autowired
 	StaffMapper sm;
 	
+	public List<Staff> selectStaffPhone(){
+		List<Staff> list=sm.selectStaffPhone();
+		return list;
+	}
+	
 	public List<Staff> selectStaffByCondition(String departmentname){
 		List<Staff> list=sm.selectStaffByCondition(departmentname);
+		return list;
+	}
+	
+	public List<Staff> selectStaffByStaffNoOrName(String condition){
+		StaffExample example=new StaffExample();
+		Criteria cra=example.createCriteria();
+		if(condition==null||condition.length()<=0) {
+			return null;
+		}
+		cra.andNameLike("%"+condition+"%");
+		Criteria cra2=example.createCriteria();
+		cra2.andStaffnoLike("%"+condition+"%");
+		example.or(cra2);
+		List<Staff> list=sm.selectByExample(example);
 		return list;
 	}
 	
 	public List<Staff> selectStaffByCondition(Staff staff){
 		StaffExample example=new StaffExample();	
 		 Criteria cra= example.createCriteria();
-		 cra.andIsdimissionEqualTo(1);
 		if(staff.getStaffno()!=null&&staff.getStaffno().length()>0) {
 			cra.andStaffnoEqualTo(staff.getStaffno());
 		}
