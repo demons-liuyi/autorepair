@@ -6,6 +6,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface ClientMapper {
+	List<Client> selectClientInfo();
+	
     int countByExample(ClientExample example);
 
     int deleteByExample(ClientExample example);

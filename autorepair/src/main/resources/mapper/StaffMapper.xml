@@ -57,7 +57,7 @@
   </resultMap>
   <select id="selectStaffPhone" resultMap="BaseResultMapPlus">
   	 select (SELECT departmentName FROM department WHERE department.id=departmentid) 
-departmentname,staffNo,name,emergencyPhone,contactNumber,phone,email from staff where staff.isdimission==0
+departmentname,staffNo,name,emergencyPhone,contactNumber,phone,email from staff where staff.isdimission=0
   </select>
   <select id="selectStaffByCondition" resultMap="BaseResultMapPlus">
   	 SELECT s.*,d.departmentname FROM staff s INNER JOIN department d ON s.departmentid=d.id WHERE d.departmentname LIKE '%${departmentname}%' and s.isdimission=0; 

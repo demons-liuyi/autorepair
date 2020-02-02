@@ -3,7 +3,38 @@ package com.accp.domain;
 import java.util.Date;
 
 public class Client {
-    private String number;
+	private String clienttype;//客户类别
+	
+	private String staffname;//员工姓名
+	
+	private Boolean check;//是否被选中
+	
+	public Boolean getCheck() {
+		return check;
+	}
+
+	public void setCheck(Boolean check) {
+		this.check = check;
+	}
+
+	
+    public String getClienttype() {
+		return clienttype;
+	}
+
+	public void setClienttype(String clienttype) {
+		this.clienttype = clienttype;
+	}
+
+	public String getStaffname() {
+		return staffname;
+	}
+
+	public void setStaffname(String staffname) {
+		this.staffname = staffname;
+	}
+
+	private String number;
 
     private String name;
 

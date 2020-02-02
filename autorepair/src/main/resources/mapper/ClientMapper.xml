@@ -27,6 +27,16 @@
     <result column="date" property="date" jdbcType="DATE" />
     <result column="Integral" property="integral" jdbcType="INTEGER" />
   </resultMap>
+  <resultMap type="com.accp.domain.Client" id="BaseResultPlus" extends="BaseResultMap">
+  	 <result column="clienttype" property="clienttype" jdbcType="VARCHAR" />
+  	  <result column="staffname" property="staffname" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="selectClientInfo" resultMap="BaseResultPlus">
+  	select (select clienttype from clienttype where id=typeid) clienttype,
+(select name from staff where staff.staffno=client.`staffNo`) staffname,client.* from client
+  </select>
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
